@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      SA_PASSWORD: "${DB_PASSWORD}"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqldata:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P ${DB_PASSWORD} -Q 'SELECT 1'"]
+      interval: 10s
+      retries: 10
+
+  api:
+    build: ./backend
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=db;Database=TaskFlowDb;User Id=sa;Password=${DB_PASSWORD};TrustServerCertificate=True
+      - JwtSettings__Secret=${JWT_SECRET}
+      - JwtSettings__Issuer=TaskFlowAPI
+      - JwtSettings__Audience=TaskFlowClient
+      - ASPNETCORE_ENVIRONMENT=Production
+    ports:
+      - "5000:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
+
+volumes:
+  sqldata:

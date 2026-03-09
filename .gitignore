@@ -1,0 +1,18 @@
+# .NET
+bin/
+obj/
+*.user
+.vs/
+appsettings.Development.json
+
+# Node
+node_modules/
+dist/
+.env
+
+# Docker
+.env
+
+# OS
+.DS_Store
+Thumbs.db
