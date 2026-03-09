@@ -16,7 +16,7 @@ A full-stack Kanban task management app built with React, .NET Core, and SQL Ser
 
 | Layer | Technology |
 |-------|-----------|
-| Frontend | React 18, TypeScript, Zustand, react-beautiful-dnd |
+| Frontend | React 18, TypeScript, Zustand, @hello-pangea/dnd |
 | Backend | .NET 10, Clean Architecture, EF Core, JWT |
 | Database | SQL Server 2022 |
 | DevOps | Docker, Docker Compose, GitHub Actions |
@@ -66,7 +66,7 @@ taskflow/
 
 ```bash
 # SQL Server
-> Use password from "C:\Work\Web Training\TaskFlow\backend\src\TaskFlow.API\appsettings.json" or create your own.
+# Use password from "C:\Work\Web Training\TaskFlow\backend\src\TaskFlow.API\appsettings.json" or create your own.
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=YourStrong@Passw0rd" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest
 
 # Backend
@@ -80,8 +80,13 @@ npm install && npm run dev
 
 ## 📸 Screenshots
 
-> Add screenshots here after first run!
+### Login
+![Login page](docs/images/login.png)
+
+### Kanban Board
+![Kanban board](docs/images/board.png)
+
+### New Task Form
+![Kanban board](docs/images/newform.png)
 
 ## 📄 License
-
-MIT
