@@ -2,7 +2,7 @@
 
 A full-stack Kanban task management app built with React, .NET Core, and SQL Server.
 
-![CI](https://github.com/YOUR_USERNAME/taskflow/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/ausanov/taskflow/actions/workflows/ci.yml/badge.svg)
 
 ## ✨ Features
 
@@ -24,7 +24,7 @@ A full-stack Kanban task management app built with React, .NET Core, and SQL Ser
 ## 🚀 Getting Started (60 seconds)
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/taskflow
+git clone https://github.com/ausanov/taskflow
 cd taskflow
 cp .env.example .env
 docker compose up --build
